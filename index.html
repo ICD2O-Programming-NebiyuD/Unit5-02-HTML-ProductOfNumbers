@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-  </head>
-  <body>
-    <p>Paragraph</p>
-  </body>
+<head>
+  <title>Repeated Addition Calculator</title>
+</head>
+<body>
+  <h1>Repeated Addition Calculator</h1>
+
+  <!-- Inputs -->
+  <label for="userNum1">How many times to add:</label>
+  <input type="number" id="userNum1" /><br><br>
+
+  <label for="userNum2">Number to add each time:</label>
+  <input type="number" id="userNum2" /><br><br>
+
+  <!-- Button -->
+  <button onclick="calculateProduct()">Calculate</button>
+
+  <!-- Result display -->
+  <p id="display-results"></p>
+
+  <!-- JavaScript -->
+  <script>
+    function calculateProduct() {
+      let sum = 0;
+      let numbers = "";
+
+      let userNum1 = parseInt(document.getElementById('userNum1').value);
+      let userNum2 = parseInt(document.getElementById('userNum2').value);
+
+      for (let counter = 1; counter <= userNum1; counter++) {
+        sum += userNum2;
+
+        if (counter < userNum1) {
+          numbers += userNum2 + " + ";
+        } else {
+          numbers += userNum2;
+        }
+      }
+
+      document.getElementById('display-results').innerHTML = numbers + " = " + sum;
+    }
+  </script>
+</body>
 </html>
